@@ -79,7 +79,18 @@
       <div id="stepTitle">Happiness Factor</div>
     </div>
 
-    <form id="feedbackForm">
+    <div class="progress">
+  <span id="stepLabel">Step 1 of 4</span>
+  <div id="stepTitle">Happiness Factor</div>
+  <div class="progress-bar">
+    <span class="active" id="step0">1</span>
+    <span id="step1">2</span>
+    <span id="step2">3</span>
+    <span id="step3">4</span>
+  </div>
+</div>
+
+<form id="feedbackForm">
   <div class="question active" id="q1">
     <label>How happy were you with your overall experience?</label>
     <label><input type="radio" name="q1" value="Very Happy"> Very Happy</label>
@@ -111,22 +122,19 @@
     <label>We'd like to learn more about you so we can serve you better and determine if any programs may be applicable.</label>
     <label>How many people live in your household?</label>
     <input type="number" name="householdSize">
-  </div>
 
-  <div class="question" id="q5">
-    <label>Do you rent or own your home?</label>
+    <label style="margin-top: 20px;">Do you rent or own your home?</label>
     <label><input type="radio" name="ownership" value="Rent"> Rent</label>
     <label><input type="radio" name="ownership" value="Own"> Own</label>
-  </div>
 
-  <div class="question" id="q6">
-    <label>What is your household income range?</label>
+    <label style="margin-top: 20px;">What is your household income range?</label>
     <select name="incomeRange">
       <option value="Under $25,000">Under $25,000</option>
       <option value="$25,000 - $50,000">$25,000 - $50,000</option>
       <option value="$50,000 - $100,000">$50,000 - $100,000</option>
       <option value="$100,000+">$100,000+</option>
     </select>
+
     <label style="margin-top: 20px;">Are you planning to invest in any energy efficiency programs in the next 12 months?</label>
     <textarea name="energyPlans" rows="4" placeholder="Tell us more..."></textarea>
   </div>
