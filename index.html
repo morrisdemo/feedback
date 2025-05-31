@@ -77,69 +77,65 @@
     <div class="progress">
       <span id="stepLabel">Step 1 of 6</span>
       <div id="stepTitle">Happiness Factor</div>
-</div>
+    </div>
 
-<div class="progress-bar-horizontal">
-  <div class="progress-step active" id="step0"><span>1</span><div>Happiness</div></div>
-  <div class="progress-step" id="step1"><span>2</span><div>Channel</div></div>
-  <div class="progress-step" id="step2"><span>3</span><div>Time</div></div>
-  <div class="progress-step" id="step3"><span>4</span><div>Household</div></div>
-</div>
+    <form id="feedbackForm">
+      <div class="question active" id="q1">
+        <label>How happy were you with your overall experience?</label>
+        <label><input type="radio" name="q1" value="Very Happy" /> Very Happy</label>
+        <label><input type="radio" name="q1" value="Happy" /> Happy</label>
+        <label><input type="radio" name="q1" value="Neutral" /> Neutral</label>
+        <label><input type="radio" name="q1" value="Unhappy" /> Unhappy</label>
+        <label><input type="radio" name="q1" value="Very Unhappy" /> Very Unhappy</label>
+      </div>
 
-<form id="feedbackForm">
-  <div class="question active" id="q1">
-    <label>How happy were you with your overall experience?</label>
-    <label><input type="radio" name="q1" value="Very Happy"> Very Happy</label>
-    <label><input type="radio" name="q1" value="Happy"> Happy</label>
-    <label><input type="radio" name="q1" value="Neutral"> Neutral</label>
-    <label><input type="radio" name="q1" value="Unhappy"> Unhappy</label>
-    <label><input type="radio" name="q1" value="Very Unhappy"> Very Unhappy</label>
-  </div>
+      <div class="question" id="q2">
+        <label>How happy were you with the channel choices you had available?</label>
+        <label><input type="radio" name="q2" value="Very Happy" /> Very Happy</label>
+        <label><input type="radio" name="q2" value="Happy" /> Happy</label>
+        <label><input type="radio" name="q2" value="Neutral" /> Neutral</label>
+        <label><input type="radio" name="q2" value="Unhappy" /> Unhappy</label>
+        <label><input type="radio" name="q2" value="Very Unhappy" /> Very Unhappy</label>
+      </div>
 
-  <div class="question" id="q2">
-    <label>How happy were you with the channel choices you had available?</label>
-    <label><input type="radio" name="q2" value="Very Happy"> Very Happy</label>
-    <label><input type="radio" name="q2" value="Happy"> Happy</label>
-    <label><input type="radio" name="q2" value="Neutral"> Neutral</label>
-    <label><input type="radio" name="q2" value="Unhappy"> Unhappy</label>
-    <label><input type="radio" name="q2" value="Very Unhappy"> Very Unhappy</label>
-  </div>
+      <div class="question" id="q3">
+        <label>How happy were you with our consideration of your time?</label>
+        <label><input type="radio" name="q3" value="Very Happy" /> Very Happy</label>
+        <label><input type="radio" name="q3" value="Happy" /> Happy</label>
+        <label><input type="radio" name="q3" value="Neutral" /> Neutral</label>
+        <label><input type="radio" name="q3" value="Unhappy" /> Unhappy</label>
+        <label><input type="radio" name="q3" value="Very Unhappy" /> Very Unhappy</label>
+      </div>
 
-  <div class="question" id="q3">
-    <label>How happy were you with our consideration of your time?</label>
-    <label><input type="radio" name="q3" value="Very Happy"> Very Happy</label>
-    <label><input type="radio" name="q3" value="Happy"> Happy</label>
-    <label><input type="radio" name="q3" value="Neutral"> Neutral</label>
-    <label><input type="radio" name="q3" value="Unhappy"> Unhappy</label>
-    <label><input type="radio" name="q3" value="Very Unhappy"> Very Unhappy</label>
-  </div>
+      <div class="question" id="q4">
+        <label>We'd like to learn more about you so we can serve you better and determine if any programs may be applicable.</label>
+        <label>How many people live in your household?</label>
+        <input type="number" name="householdSize" />
+      </div>
 
-  <div class="question" id="q4">
-    <label>We'd like to learn more about you so we can serve you better and determine if any programs may be applicable.</label>
-    <label>How many people live in your household?</label>
-    <input type="number" name="householdSize">
+      <div class="question" id="q5">
+        <label>Do you rent or own your home?</label>
+        <label><input type="radio" name="ownership" value="Rent" /> Rent</label>
+        <label><input type="radio" name="ownership" value="Own" /> Own</label>
+      </div>
 
-    <label style="margin-top: 20px;">Do you rent or own your home?</label>
-    <label><input type="radio" name="ownership" value="Rent"> Rent</label>
-    <label><input type="radio" name="ownership" value="Own"> Own</label>
+      <div class="question" id="q6">
+        <label>What is your household income range?</label>
+        <select name="incomeRange">
+          <option value="Under $25,000">Under $25,000</option>
+          <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+          <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+          <option value="$100,000+">$100,000+</option>
+        </select>
+        <label style="margin-top: 20px;">Are you planning to invest in any energy efficiency programs in the next 12 months?</label>
+        <textarea name="energyPlans" rows="4" placeholder="Tell us more..."></textarea>
+      </div>
 
-    <label style="margin-top: 20px;">What is your household income range?</label>
-    <select name="incomeRange">
-      <option value="Under $25,000">Under $25,000</option>
-      <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-      <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-      <option value="$100,000+">$100,000+</option>
-    </select>
-
-    <label style="margin-top: 20px;">Are you planning to invest in any energy efficiency programs in the next 12 months?</label>
-    <textarea name="energyPlans" rows="4" placeholder="Tell us more..."></textarea>
-  </div>
-
-  <div class="nav-buttons">
-    <button type="button" class="btn" id="backBtn" onclick="prevStep()" disabled>Back</button>
-    <button type="button" class="btn" id="nextBtn" onclick="nextStep()">Next</button>
-  </div>
-</form>
+      <div class="nav-buttons">
+        <button type="button" class="btn" id="backBtn" onclick="prevStep()" disabled>Back</button>
+        <button type="button" class="btn" id="nextBtn" onclick="nextStep()">Next</button>
+      </div>
+    </form>
   </div>
 
   <script>
@@ -186,3 +182,4 @@
   </script>
 </body>
 </html>
+
