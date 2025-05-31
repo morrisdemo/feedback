@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Feedback - Happiness Factor</title>
+  <style>
+    body {
+      font-family: "72", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .progress {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      color: #0a6ed1;
+    }
+    .question {
+      display: none;
+    }
+    .question.active {
+      display: block;
+    }
+    label {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    input[type="radio"] {
+      transform: scale(1.3);
+      margin-right: 10px;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .btn {
+      background-color: #0a6ed1;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn[disabled] {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    select,
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress">
+      <span id="stepLabel">Step 1 of 6</span>
+      <div id="stepTitle">Happiness Factor</div>
+    </div>
+
+    <form id="feedbackForm">
+      <div class="question active" id="q1">
+        <label>How happy were you with your overall experience?</label>
+        <label><input type="radio" name="q1" value="Very Happy" /> Very Happy</label>
+        <label><input type="radio" name="q1" value="Happy" /> Happy</label>
+        <label><input type="radio" name="q1" value="Neutral" /> Neutral</label>
+        <label><input type="radio" name="q1" value="Unhappy" /> Unhappy</label>
+        <label><input type="radio" name="q1" value="Very Unhappy" /> Very Unhappy</label>
+      </div>
+
+      <div class="question" id="q2">
+        <label>How happy were you with the channel choices you had available?</label>
+        <label><input type="radio" name="q2" value="Very Happy" /> Very Happy</label>
+        <label><input type="radio" name="q2" value="Happy" /> Happy</label>
+        <label><input type="radio" name="q2" value="Neutral" /> Neutral</label>
+        <label><input type="radio" name="q2" value="Unhappy" /> Unhappy</label>
+        <label><input type="radio" name="q2" value="Very Unhappy" /> Very Unhappy</label>
+      </div>
+
+      <div class="question" id="q3">
+        <label>How happy were you with our consideration of your time?</label>
+        <label><input type="radio" name="q3" value="Very Happy" /> Very Happy</label>
+        <label><input type="radio" name="q3" value="Happy" /> Happy</label>
+        <label><input type="radio" name="q3" value="Neutral" /> Neutral</label>
+        <label><input type="radio" name="q3" value="Unhappy" /> Unhappy</label>
+        <label><input type="radio" name="q3" value="Very Unhappy" /> Very Unhappy</label>
+      </div>
+
+      <div class="question" id="q4">
+        <label>We'd like to learn more about you so we can serve you better and determine if any programs may be applicable.</label>
+        <label>How many people live in your household?</label>
+        <input type="number" name="householdSize" />
+      </div>
+
+      <div class="question" id="q5">
+        <label>Do you rent or own your home?</label>
+        <label><input type="radio" name="ownership" value="Rent" /> Rent</label>
+        <label><input type="radio" name="ownership" value="Own" /> Own</label>
+      </div>
+
+      <div class="question" id="q6">
+        <label>What is your household income range?</label>
+        <select name="incomeRange">
+          <option value="Under $25,000">Under $25,000</option>
+          <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+          <option value="$50,000 - $100,000">$50,000 - $100,000</option>
+          <option value="$100,000+">$100,000+</option>
+        </select>
+        <label style="margin-top: 20px;">Are you planning to invest in any energy efficiency programs in the next 12 months?</label>
+        <textarea name="energyPlans" rows="4" placeholder="Tell us more..."></textarea>
+      </div>
+
+      <div class="nav-buttons">
+        <button type="button" class="btn" id="backBtn" onclick="prevStep()" disabled>Back</button>
+        <button type="button" class="btn" id="nextBtn" onclick="nextStep()">Next</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.question');
+    const stepLabel = document.getElementById('stepLabel');
+    const stepTitle = document.getElementById('stepTitle');
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
+
+    const titles = [
+      'Happiness Factor',
+      'Channel Choices',
+      'Time Consideration',
+      'Your Household',
+      'Housing Status',
+      'Income & Energy Plans'
+    ];
+
+    function updateStep(index) {
+      steps.forEach((s, i) => s.classList.toggle('active', i === index));
+      stepLabel.textContent = `Step ${index + 1} of ${steps.length}`;
+      stepTitle.textContent = titles[index];
+      backBtn.disabled = index === 0;
+      nextBtn.textContent = index === steps.length - 1 ? 'Submit' : 'Next';
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStep(currentStep);
+      } else {
+        alert('Form submitted!');
+        document.getElementById('feedbackForm').submit();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStep(currentStep);
+      }
+    }
+  </script>
+</body>
+</html>
